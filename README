@@ -1,6 +1,6 @@
 Vim Files to enable syntax highlighting for Gromacs files.
 
-Works with only mdp file for the moment.
+Works with only mdp and ndx files for the moment.
 
 =============
 Installation:
