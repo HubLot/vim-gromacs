@@ -18,7 +18,7 @@
 " " Language:           Topology file
 " " Maintainer:         Hubert Santuz <hubert.santuz@gmail.com>
 " " Last Change:        23 Feb 2012
-" " Filenames:          *.top *.TOP
+" " Filenames:          *.top *.TOP *.itp *.ITP
 " " 
 
 if exists("b:current_syntax")
