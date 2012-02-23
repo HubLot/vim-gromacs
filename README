@@ -10,7 +10,7 @@ Installation:
   ~~~~~~~~~~
 Go to your ~/.vim directory
 
-If "syntax" and "ftdetect" directories don't exist, copy them from github.
+If "syntax", "ftdetect" and "ftplugins" directories don't exist, copy them from github.
 If they are, copy only files inside. Otherwise, existing files will be replaced.
 
   VimBall Way (Vim >= 7.0)
@@ -21,3 +21,21 @@ Open it with vi and type:
   - :so %
   - :q!
 
+============
+Plugin usage
+============
+
+  Get started
+  ~~~~~~~~~~~
+
+To have the gromacs plugin loaded for gromacs files only you need to allow filetype plugins. To allow it have "filetype plugin on" in yout .vimrc.
+
+To have gromacs plugin always allowed, move gromacs.vim from ~/.vim/ftplugin to ~/.vim/plugin.
+
+  Shortcuts
+  ~~~~~~~~~
+
+]; -- Comment the selection
+]: -- Uncomment the selection
+], -- Jump to the next section
+]! -- Jump to the previous section
