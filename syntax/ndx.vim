@@ -29,9 +29,12 @@ endif
 syn region ndxBlock start='\[' end='\]'  contains=ndxBlockValue
 syn match ndxBlockValue   "\([A-Za-z0-9_-]\|\s\|\.\)\+" contained
 
+"  " For Comments
+syn match ndxComment ";.*$"
+
 let b:current_syntax = "ndx"
 
 " "Highlights colors
 hi def link ndxBlock       Function
 hi def link ndxBlockValue  Keyword
-
+hi def link ndxComment     Comment
