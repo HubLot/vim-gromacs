@@ -32,6 +32,6 @@ syn match ndxBlockValue   "\([A-Za-z0-9_-]\|\s\|\.\)\+" contained
 let b:current_syntax = "ndx"
 
 " "Highlights colors
-hi def link ndxBlock       Special
-hi def link ndxBlockValue  constant
+hi def link ndxBlock       Function
+hi def link ndxBlockValue  Keyword
 
