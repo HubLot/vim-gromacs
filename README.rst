@@ -6,17 +6,18 @@ It contains a set of files to enable syntax highlighting for Gromacs files.
 For the moment, it works with mdp, ndx and top/itp files.
 It contains also macros to comment/uncomment easily selections of a file and to jump to different sections (*[...]*) of a file.
 
+
 Installation
 ------------
 
- + **Manual Way**
++ **Manual Way**
 
 Go to your ~/.vim directory
 
 If *syntax*, *ftdetect* and *ftplugin* directories don't exist, copy them from github.
 If they are, copy only files inside. Otherwise, existing files will be replaced.
 
- + **VimBall Way (Vim >= 7.0)**
++ **VimBall Way (Vim >= 7.0)**
 
 Get the vimball *gromacs.vba*.
 Open it with vi and type:
@@ -27,7 +28,8 @@ Open it with vi and type:
   :q!
 
 
- + **OS Supported**
+
++ **OS Supported**
 
 Vim-Gromacs has been tested on Ubuntu 8.04, 10.04 and 11.04, Debian Squeeze and Mac OS X.
 Please let us know if it's working on other distros.
@@ -46,8 +48,11 @@ Usage
 Shortcuts for the macros:
 
 ]; -- Comment the selection
+
 ]: -- Uncomment the selection
+
 ], -- Jump to the next section
+
 ]! -- Jump to the previous section
 
 A section is defined by '[....]'
@@ -64,6 +69,7 @@ Authors
 **Jonathan Barnoud**
 
 + https://github.com/jbarnoud
++ https://twitter.com/jbarnoud
 
 
 Licence
@@ -80,6 +86,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.                           
                                                                           
 A copy of the GNU General Public License is available at
-http://www.gnu.org/licenses/gpl-3.0.html
+http://www.gnu.org/licenses/gpl-3.0.html.
 
                                          
