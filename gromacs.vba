@@ -2,7 +2,7 @@
 UseVimball
 finish
 syntax/mdp.vim	[[[1
-47
+46
 "                                                                           
 "    This program is free software: you can redistribute it and/or modify  
 "    it under the terms of the GNU General Public License as published by   
@@ -15,8 +15,7 @@ syntax/mdp.vim	[[[1
 "    GNU General Public License for more details.                           
 "                                                                           
 "    A copy of the GNU General Public License is available at
-"    http://www.r-project.org/Licenses/                                                                          
- 
+"    http://www.gnu.org/licenses/gpl-3.0.html 
 
 
 " Vim syntax file
@@ -51,7 +50,7 @@ hi def link mdpValueName   Constant
 hi def link mdpEqual       Function
 
 syntax/ndx.vim	[[[1
-37
+40
 "                                                                           
 "    This program is free software: you can redistribute it and/or modify  
 "    it under the terms of the GNU General Public License as published by   
@@ -64,7 +63,7 @@ syntax/ndx.vim	[[[1
 "    GNU General Public License for more details.                           
 "                                                                           
 "    A copy of the GNU General Public License is available at
-"    http://www.r-project.org/Licenses/                                                                          
+"    http://www.gnu.org/licenses/gpl-3.0.html
  
 
 
@@ -83,12 +82,15 @@ endif
 syn region ndxBlock start='\[' end='\]'  contains=ndxBlockValue
 syn match ndxBlockValue   "\([A-Za-z0-9_-]\|\s\|\.\)\+" contained
 
+"  " For Comments
+syn match ndxComment ";.*$"
+
 let b:current_syntax = "ndx"
 
 " "Highlights colors
 hi def link ndxBlock       Function
 hi def link ndxBlockValue  Keyword
-
+hi def link ndxComment     Comment
 syntax/top.vim	[[[1
 61
 "                                                                           
@@ -103,7 +105,7 @@ syntax/top.vim	[[[1
 "    GNU General Public License for more details.                           
 "                                                                           
 "    A copy of the GNU General Public License is available at
-"    http://www.r-project.org/Licenses/                                                                          
+"    http://www.gnu.org/licenses/gpl-3.0.html
  
 
 
