@@ -25,11 +25,11 @@ Open it with vi and type:
 
   :so %
   :q!
-
+..
 
  + **OS Supported**
 
-Vim-Gromacs has been tested on Ubuntu 8.04, 10.04 and 11.04, Debian Squeeze and Mac OS X.
+Vim-Gromacs has been tested on Ubuntu 8.04, 10.04 and 11.04, Debian Squeeze, Fedora 16 and Mac OS X.
 Please let us know if it's working on other distros.
 
 Get Started
@@ -45,10 +45,10 @@ Usage
 
 Shortcuts for the macros:
 
-]; -- Comment the selection
-]: -- Uncomment the selection
-], -- Jump to the next section
-]! -- Jump to the previous section
+* ]; -- Comment the selection
+* ]: -- Uncomment the selection
+* ], -- Jump to the next section
+* ]! -- Jump to the previous section
 
 A section is defined by '[....]'
 
@@ -64,6 +64,7 @@ Authors
 **Jonathan Barnoud**
 
 + https://github.com/jbarnoud
++ https://twitter.com/jbarnoud
 
 
 Licence
