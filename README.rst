@@ -16,13 +16,13 @@ Installation
 
 Go to your ~/.vim directory.
 
-| If *syntax*, *ftdetect* and *ftplugin* directories don't exist, copy them from github.
-| If they are, copy only files inside. Otherwise, existing files will be replaced.
+If *syntax*, *ftdetect* and *ftplugin* directories don't exist, copy them from github.
+If they are, copy only files inside. Otherwise, existing files will be replaced.
 
 + **VimBall Way (Vim >= 7.0)**
 
-| Get the vimball *gromacs.vba*.
-| Open it with vi and type:
+Get the vimball *gromacs.vba*.
+Open it with vi and type:
 
 ::
 
@@ -33,15 +33,18 @@ Go to your ~/.vim directory.
 
 + **OS Supported**
 
-| Vim-Gromacs has been tested on Ubuntu 8.04, 10.04 and 11.04, Debian Squeeze, Fedora 16 and Mac OS X.
-| Please let us know if it's working on other distros.
+Vim-Gromacs has been tested on Ubuntu 8.04, 10.04 and 11.04, Debian Squeeze, Fedora 16 and Mac OS X.
+
+Please let us know if it's working on other distros.
 
 Get Started
 -----------
 
-| Syntax highlighting should be automatic.
-| To use macros, you need to allow filetype plugins : "filetype plugin on" in your *.vimrc*.
-| (If you want to have gromacs macros always allowed, move gromacs.vim from  *~/.vim/ftplugin* to *~/.vim/plugin*)
+Syntax highlighting should be automatic.
+
+To use macros, you need to allow filetype plugins : "filetype plugin on" in your *.vimrc*.
+
+(If you want to have gromacs macros always allowed, move gromacs.vim from  *~/.vim/ftplugin* to *~/.vim/plugin*)
 
 
 Usage
