@@ -4,7 +4,7 @@ Vim-Gromacs
 Vim-Gromacs is a plugin to easy manipulate Gromacs files in Vi/Vim.
 
 It contains a set of files to enable syntax highlighting for Gromacs files.
-For the moment, it works with mdp, ndx and top/itp files.
+For the moment, it works with mdp, gro, top/itp and ndx files.
 
 It contains also macros to comment/uncomment easily selections of a file and to jump to different sections (*[...]*) of a file.
 
