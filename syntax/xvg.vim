@@ -29,12 +29,14 @@ endif
 syn match xvgComment "#.*$"
 
 "  " For graphical instructions
-syn match xvgInstruction "@.*$"
+syn match xvgInstruction "@.*$" contains=xvgString
+syn match xvgString "\".*\"" contained
 
 let b:current_syntax = "gro"
 
 " "Highlights colors
 hi def link xvgComment          Comment
 hi def link xvgInstruction      Special
+hi def link xvgString           Constant
 
 
