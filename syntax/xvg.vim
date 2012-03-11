@@ -31,8 +31,8 @@ syn match xvgComment "#.*$"
 "  " For graphical instructions
 syn match xvgInstruction "@.*$" contains=xvgString,xvgKeywords,xvgArguments,xvgBoolean
 syn match xvgString "\".*\"" contained
-syn keyword xvgKeywords title xaxis yaxis view legend contained
-syn keyword xvgArguments label box loctype length contained
+syn keyword xvgKeywords TYPE title subtitle xaxis yaxis view legend contained
+syn keyword xvgArguments label box loctype length xy contained
 syn keyword xvgBoolean on off contained
 
 let b:current_syntax = "gro"
