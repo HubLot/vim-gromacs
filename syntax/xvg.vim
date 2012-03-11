@@ -15,7 +15,7 @@
 
 
 " Vim syntax file
-" " Language:           Xvg
+" " Language:           Xvg, Gromacs formated data files
 " " Maintainer:         Jonathan Barnoud <jonathan@barnoud.net>
 " " Last Change:        10 Mar 2012
 " " Filenames:          *.xvg *.XVG
