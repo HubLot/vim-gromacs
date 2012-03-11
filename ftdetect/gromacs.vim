@@ -17,3 +17,6 @@ au BufNewFile,BufRead *.ITP    setf top.gromacs
 au BufNewFile,BufRead *.gro    setf gro.gromacs
 au BufNewFile,BufRead *.GRO    setf gro.gromacs
 
+" Coordinate file (gro)
+au BufNewFile,BufRead *.xvg    setf xvg
+au BufNewFile,BufRead *.XVG    setf xvg
