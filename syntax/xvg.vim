@@ -29,11 +29,12 @@ endif
 syn match xvgComment "#.*$"
 
 "  " For graphical instructions
-syn match xvgInstruction "@.*$" contains=xvgString,xvgKeywords,xvgArguments,xvgBoolean
+syn match xvgInstruction "@.*$" contains=xvgString,xvgKeywords,xvgArguments,xvgBoolean,xvgWith
 syn match xvgString "\".*\"" contained
-syn keyword xvgKeywords TYPE title subtitle xaxis yaxis view legend contained
-syn keyword xvgArguments label box loctype length xy contained
+syn keyword xvgKeywords TYPE title subtitle xaxis yaxis view legend world linestyle linewidth color box contained
+syn keyword xvgArguments label box loctype length xy nxy xmin xmax ymin ymax string fill patern contained
 syn keyword xvgBoolean on off contained
+syn keyword xvgWith with contained
 
 let b:current_syntax = "gro"
 
@@ -44,5 +45,6 @@ hi def link xvgString           String
 hi def link xvgKeywords         Keyword
 hi def link xvgArguments        Type
 hi def link xvgBoolean          Boolean
+hi def link xvgWith             Conditional
 
 
