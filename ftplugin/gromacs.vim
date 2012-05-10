@@ -37,7 +37,7 @@ map  ]!   :call GromacsMoveSection(-1)<CR>
 
 " Comment out selected lines
 " Add the comment character as first column
-function GromacsCommentSelection() range
+function! GromacsCommentSelection() range
     let commentString = ";"
     let cl = a:firstline
     while (cl <= a:lastline)
@@ -49,7 +49,7 @@ endfunction
 
 " Uncomment  selected lines
 " Remove the first comment character
-function GromacsUncommentSelection() range
+function! GromacsUncommentSelection() range
     let commentString = ";"
     let cl = a:firstline
     while (cl <= a:lastline)
@@ -61,7 +61,7 @@ function GromacsUncommentSelection() range
 endfunction
 
 " Move to the next (1) or previous (-1) section
-function GromacsMoveSection(direction)
+function! GromacsMoveSection(direction)
     let regexp = "\\[.*\\]"
     let flag = "W"
     if (a:direction == -1)
