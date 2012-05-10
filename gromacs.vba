@@ -213,8 +213,60 @@ hi def link groCoordinates      Type
 hi def link groVelocities       Keyword
 hi def link groBox              Function
 
+syntax/xvg.vim	[[[1
+50
+"                                                                           
+"    This program is free software: you can redistribute it and/or modify  
+"    it under the terms of the GNU General Public License as published by   
+"    the Free Software Foundation, either version 3 of the License, or      
+"    (at your option) any later version.                                    
+"                                                                           
+"    This program is distributed in the hope that it will be useful,        
+"    but WITHOUT ANY WARRANTY; without even the implied warranty of         
+"    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the          
+"    GNU General Public License for more details.                           
+"                                                                           
+"    A copy of the GNU General Public License is available at
+"    http://www.gnu.org/licenses/gpl-3.0.html
+ 
+
+
+" Vim syntax file
+" " Language:           Xvg, Gromacs formated data files
+" " Maintainer:         Jonathan Barnoud <jonathan@barnoud.net>
+" " Last Change:        10 Mar 2012
+" " Filenames:          *.xvg *.XVG
+" " 
+
+if exists("b:current_syntax")
+  finish
+endif
+
+"  " For Comments
+syn match xvgComment "#.*$"
+
+"  " For graphical instructions
+syn match xvgInstruction "@.*$" contains=xvgString,xvgKeywords,xvgArguments,xvgBoolean,xvgWith
+syn match xvgString "\".*\"" contained
+syn keyword xvgKeywords TYPE title subtitle xaxis yaxis view legend world linestyle linewidth color box contained
+syn keyword xvgArguments label box loctype length xy nxy xmin xmax ymin ymax string fill patern contained
+syn keyword xvgBoolean on off contained
+syn keyword xvgWith with contained
+
+let b:current_syntax = "gro"
+
+" "Highlights colors
+hi def link xvgComment          Comment
+hi def link xvgInstruction      Special
+hi def link xvgString           String
+hi def link xvgKeywords         Keyword
+hi def link xvgArguments        Type
+hi def link xvgBoolean          Boolean
+hi def link xvgWith             Conditional
+
+
 ftdetect/gromacs.vim	[[[1
-20
+22
 " Molecular Dynamics Parameter file (mdp)
 au BufNewFile,BufRead *.mdp    setf mdp.gromacs
 au BufNewFile,BufRead *.MDP    setf mdp.gromacs
@@ -223,18 +275,20 @@ au BufNewFile,BufRead *.MDP    setf mdp.gromacs
 au BufNewFile,BufRead *.ndx    setf ndx.gromacs
 au BufNewFile,BufRead *.NDX    setf ndx.gromacs
 
-"Topology file (top, itp)
+" Topology file (top, itp)
 au BufNewFile,BufRead *.top    setf top.gromacs
 au BufNewFile,BufRead *.TOP    setf top.gromacs
 
 au BufNewFile,BufRead *.itp    setf top.gromacs
 au BufNewFile,BufRead *.ITP    setf top.gromacs
 
-"Coordinate file (gro)
-"
+" Coordinate file (gro)
 au BufNewFile,BufRead *.gro    setf gro.gromacs
 au BufNewFile,BufRead *.GRO    setf gro.gromacs
 
+" Coordinate file (gro)
+au BufNewFile,BufRead *.xvg    setf xvg
+au BufNewFile,BufRead *.XVG    setf xvg
 ftplugin/gromacs.vim	[[[1
 71
 "                                                                           
@@ -276,7 +330,7 @@ map  ]!   :call GromacsMoveSection(-1)<CR>
 
 " Comment out selected lines
 " Add the comment character as first column
-function GromacsCommentSelection() range
+function! GromacsCommentSelection() range
     let commentString = ";"
     let cl = a:firstline
     while (cl <= a:lastline)
@@ -288,7 +342,7 @@ endfunction
 
 " Uncomment  selected lines
 " Remove the first comment character
-function GromacsUncommentSelection() range
+function! GromacsUncommentSelection() range
     let commentString = ";"
     let cl = a:firstline
     while (cl <= a:lastline)
@@ -300,7 +354,7 @@ function GromacsUncommentSelection() range
 endfunction
 
 " Move to the next (1) or previous (-1) section
-function GromacsMoveSection(direction)
+function! GromacsMoveSection(direction)
     let regexp = "\\[.*\\]"
     let flag = "W"
     if (a:direction == -1)
