@@ -60,8 +60,8 @@ Shortcuts for the macros:
 
 * ]; -- Comment the selection
 * ]: -- Uncomment the selection
-* ], -- Jump to the next section
-* ]! -- Jump to the previous section
+* ]j -- Jump to the next section
+* ]k -- Jump to the previous section
 
 A section is defined by '[....]'
 

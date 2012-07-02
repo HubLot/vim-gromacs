@@ -19,8 +19,8 @@
 " Shortcuts:
 "   ];      -- Comment the selected block
 "   ]:      -- Uncomment the selected block
-"   ],      -- Jump to the previous section
-"   ]!      -- Jump to the next section
+"   ]k      -- Jump to the previous section
+"   ]j      -- Jump to the next section
 
 
 if exists("b:loaded_gmx_plugin")
@@ -32,8 +32,8 @@ map  ];   :call GromacsCommentSelection()<CR>
 vmap ];   :call GromacsCommentSelection()<CR>
 map  ]:   :call GromacsUncommentSelection()<CR>
 vmap ]:   :call GromacsUncommentSelection()<CR>
-map  ],   :call GromacsMoveSection(1)<CR>
-map  ]!   :call GromacsMoveSection(-1)<CR>
+map  ]j   :call GromacsMoveSection(1)<CR>
+map  ]k   :call GromacsMoveSection(-1)<CR>
 
 " Comment out selected lines
 " Add the comment character as first column
