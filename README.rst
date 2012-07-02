@@ -8,6 +8,8 @@ For the moment, it works with mdp, gro, top/itp, xvg and ndx files.
 
 It contains also macros to comment/uncomment easily selections of a file and to jump to different sections (*[...]*) of a file.
 
+The plugin also provides keyword autocompletion in mdp and top/itp files.
+
 
 Installation
 ------------
@@ -18,6 +20,12 @@ Go to your ~/.vim directory.
 
 If *syntax*, *ftdetect* and *ftplugin* directories don't exist, copy them from github.
 If they are, copy only files inside. Otherwise, existing files will be replaced.
+
++ **Pathogen Way**
+
+Pathogen is a vim module which allows to load modules from there own directory.
+
+Install pathogen (https://github.com/tpope/vim-pathogen) and then clone this repository in ~/.vim/bundle. It works.
 
 + **VimBall Way (Vim >= 7.0)**
 
@@ -46,6 +54,8 @@ To use macros, you need to allow filetype plugins : "filetype plugin on" in your
 
 (If you want to have gromacs macros always allowed, move gromacs.vim from  *~/.vim/ftplugin* to *~/.vim/plugin*)
 
+To autocomplete a keyword in a mdp or a top/itp file, start typing your word and press Ctrl+N.
+
 
 Usage
 -----
@@ -54,8 +64,8 @@ Shortcuts for the macros:
 
 * ]; -- Comment the selection
 * ]: -- Uncomment the selection
-* ], -- Jump to the next section
-* ]! -- Jump to the previous section
+* ]j -- Jump to the next section
+* ]k -- Jump to the previous section
 
 A section is defined by '[....]'
 
