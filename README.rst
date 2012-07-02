@@ -8,6 +8,8 @@ For the moment, it works with mdp, gro, top/itp, xvg and ndx files.
 
 It contains also macros to comment/uncomment easily selections of a file and to jump to different sections (*[...]*) of a file.
 
+The plugin also provides keyword autocompletion in mdp and top/itp files.
+
 
 Installation
 ------------
@@ -51,6 +53,8 @@ Syntax highlighting should be automatic.
 To use macros, you need to allow filetype plugins : "filetype plugin on" in your *.vimrc*.
 
 (If you want to have gromacs macros always allowed, move gromacs.vim from  *~/.vim/ftplugin* to *~/.vim/plugin*)
+
+To autocomplete a keyword in a mdp or a top/itp file, start typing your word and press Ctrl+N.
 
 
 Usage
