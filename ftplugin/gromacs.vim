@@ -62,7 +62,7 @@ endfunction
 
 " Move to the next (1) or previous (-1) section
 function! GromacsMoveSection(direction)
-    let regexp = "\\[.*\\]"
+    let regexp = "^[ \t]*\\[.*\\]"
     let flag = "W"
     if (a:direction == -1)
         let flag = flag."b"
