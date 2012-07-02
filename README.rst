@@ -19,6 +19,12 @@ Go to your ~/.vim directory.
 If *syntax*, *ftdetect* and *ftplugin* directories don't exist, copy them from github.
 If they are, copy only files inside. Otherwise, existing files will be replaced.
 
++ **Pathogen Way**
+
+Pathogen is a vim module which allows to load modules from there own directory.
+
+Install pathogen (https://github.com/tpope/vim-pathogen) and then clone this repository in ~/.vim/bundle. It works.
+
 + **VimBall Way (Vim >= 7.0)**
 
 Get the vimball *gromacs.vba*.
