@@ -312,8 +312,8 @@ ftplugin/gromacs.vim	[[[1
 " Shortcuts:
 "   ];      -- Comment the selected block
 "   ]:      -- Uncomment the selected block
-"   ],      -- Jump to the previous section
-"   ]!      -- Jump to the next section
+"   ]k      -- Jump to the previous section
+"   ]j      -- Jump to the next section
 
 
 if exists("b:loaded_gmx_plugin")
@@ -325,8 +325,8 @@ map  ];   :call GromacsCommentSelection()<CR>
 vmap ];   :call GromacsCommentSelection()<CR>
 map  ]:   :call GromacsUncommentSelection()<CR>
 vmap ]:   :call GromacsUncommentSelection()<CR>
-map  ],   :call GromacsMoveSection(1)<CR>
-map  ]!   :call GromacsMoveSection(-1)<CR>
+map  ]j   :call GromacsMoveSection(1)<CR>
+map  ]k   :call GromacsMoveSection(-1)<CR>
 
 " Comment out selected lines
 " Add the comment character as first column
@@ -355,10 +355,233 @@ endfunction
 
 " Move to the next (1) or previous (-1) section
 function! GromacsMoveSection(direction)
-    let regexp = "\\[.*\\]"
+    let regexp = "^[ \t]*\\[.*\\]"
     let flag = "W"
     if (a:direction == -1)
         let flag = flag."b"
     endif
     let res = search(regexp, flag)
 endfunction
+ftplugin/mdp.vim	[[[1
+9
+if exists("b:loaded_mdp_plugin")
+  finish
+endif
+let b:loaded_mdp_plugin = 1
+
+let b:current_file=fnamemodify(expand("<sfile>"), ":h")."/mdp.dict"
+echomsg b:current_file
+execute "setlocal dictionary+=".b:current_file
+setlocal complete+=k
+ftplugin/mdp.dict	[[[1
+173
+include
+define
+integrator
+tinit
+dt
+nsteps
+init_step
+simulation_part
+comm-mode
+nstcomm
+comm-grps
+bd-fric
+ld-seed
+emtol
+emstep
+niter
+fcstep
+nstcgsteep
+nbfgscorr
+rtpi
+nstxout
+nstvout
+nstfout
+nstlog
+nstcalcenergy
+nstenergy
+nstxtcout
+xtc-precision
+xtc-grps
+energygrps
+nstlist
+ns_type
+pbc
+periodic_molecules
+rlist
+rlistlong
+coulombtype
+rcoulomb-switch
+rcoulomb
+epsilon_r
+epsilon_rf
+vdw-type
+rvdw-switch
+rvdw
+DispCorr
+table-extension
+energygrp_table
+fourierspacing
+fourier_nx
+fourier_ny
+fourier_nz
+pme_order
+ewald_rtol
+ewald_geometry
+epsilon_surface
+optimize_fft
+implicit_solvent
+gb_algorithm
+nstgbradii
+rgbradii
+gb_epsilon_solvent
+gb_saltconc
+gb_obc_alpha
+gb_obc_beta
+gb_obc_gamma
+gb_dielectric_offset
+sa_algorithm
+sa_surface_tension
+Tcoupl
+nsttcouple
+nh-chain-length
+tc-grps
+tau_t
+ref_t
+Pcoupl
+Pcoupltype
+nstpcouple
+tau_p
+compressibility
+ref_p
+refcoord_scaling
+andersen_seed
+QMMM
+QMMM-grps
+QMmethod
+QMMMscheme
+QMbasis
+QMcharge
+QMmult
+SH
+CASorbitals
+CASelectrons
+SAon
+SAoff
+SAsteps
+MMChargeScaleFactor
+bOPT
+bTS
+annealing
+annealing_npoints
+annealing_time
+annealing_temp
+gen_vel
+gen_temp
+gen_seed
+constraints
+constraint-algorithm
+continuation
+Shake-SOR
+shake-tol
+lincs-order
+lincs-iter
+lincs-warnangle
+morse
+energygrp_excl
+nwall
+wall_type
+wall_r_linpot
+wall_atomtype
+wall_density
+wall_ewald_zfac
+pull
+disre
+disre-weighting
+disre-mixed
+disre-fc
+disre-tau
+nstdisreout
+orire
+orire-fc
+orire-tau
+orire-fitgrp
+nstorireout
+dihre
+dihre-fc
+free-energy
+init-lambda
+delta-lambda
+foreign_lambda
+sc-alpha
+sc-power
+sc-sigma
+nstdhdl
+separate-dhdl-file
+dhdl-derivatives
+dh_hist_size
+dh_hist_spacing
+couple-moltype
+couple-lambda0
+couple-lambda1
+couple-intramol
+acc-grps
+accelerate
+freezegrps
+freezedim
+cos-acceleration
+deform
+E-x
+E-xt
+E-y
+E-yt
+E-z
+E-zt
+user1-grps
+user2-grps
+userint1
+userint2
+userint3
+userint4
+userreal1
+userreal2
+userreal3
+userreal4
+ftplugin/top.vim	[[[1
+9
+if exists("b:loaded_top_plugin")
+  finish
+endif
+let b:loaded_top_plugin = 1
+
+let b:current_file=fnamemodify(expand("<sfile>"), ":h")."/top.dict"
+echomsg b:current_file
+execute "setlocal dictionary+=".b:current_file
+setlocal complete+=k
+ftplugin/top.dict	[[[1
+24
+[ angles ]
+[ angletypes ]
+[ atoms ]
+[ atomtypes ]
+[ bonds ]
+[ bondtypes ]
+[ cmaptypes ]
+[ constraints ]
+[ constrainttypes ]
+[ defaults ]
+[ dihedrals ]
+[ dihedraltypes ]
+[ dummies3 ]
+[ exclusions ]
+[ implicit_genborn_params ]
+[ moleculetype ]
+[ nonbond_params ]
+[ pairs ]
+[ pairtypes ]
+[ polarization ]
+[ position_restraints ]
+[ settles ]
+[ virtual_sites3 ]
+[ water_polarization ]
