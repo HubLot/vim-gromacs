@@ -32,9 +32,9 @@ syn match mdpParam       "^[A-Za-z0-9_-]\+" contains=mdpParamName
 syn match mdpParamName   "[A-Za-z0-9_-]\+" contained
 
 " "For values (after '=')
-syn match mdpValue       "= *\([A-Za-z0-9_-]\|\s\|\.\)\+" contains=mdpEqual,mdpValueName
+syn match mdpValue       "= *\([^ =\t]\|\s\|\.\)\+" contains=mdpEqual,mdpValueName
 syn match mdpEqual       "=" contained
-syn match mdpValueName   "\([A-Za-z0-9_-]\|\s\|\.\)\+" contained  
+syn match mdpValueName   "\([^ =\t]\|\s\|\.\)\+" contained  
 
 
 let b:current_syntax = "mdp"
