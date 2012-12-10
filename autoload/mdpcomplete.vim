@@ -12,8 +12,6 @@ if has('python')
     exe 'python sys.path = ["' . s:plugin_path . '"] + sys.path'
     python import mdp_complete
 
-
-    "function! CompleteMDP(findstart, base)
     function! mdpcomplete#Complete(findstart, base)
         python mdp_complete.vim_complete()
         return l:result
