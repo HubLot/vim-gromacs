@@ -5,7 +5,6 @@ This is a prototype for completeion suggestion in the context of a GROMACS mdp
 file. The final purpose is to propose autocompletetion for mdp files in vim.
 """
 
-import sys
 import vim
 
 MDP = {
@@ -50,7 +49,7 @@ MDP = {
     # Neighbor searching
     'nstlist': [],
     'ns_type': ['grid', 'simple'],
-    'pbd': ['xyz', 'no', 'xy'],
+    'pbc': ['xyz', 'no', 'xy'],
     'periodic_molecules': ['no', 'yes'],
     'rlist': [],
     'rlistlong': [],
@@ -158,6 +157,74 @@ MDP = {
     'orire_tau': [],
     'orire_fitgrp': [],
     'nstorireout': [],
+    # Free energy calculations
+    'free_energy': ['no', 'yes'],
+    'init_lambda': [],
+    'delta_lambda': [],
+    'foreign_lambda': [],
+    'dhdl_derivatives': [],
+    'sc_alpha': [],
+    'sc_power': [],
+    'sc_sigma': [],
+    'couple_moltype': [],
+    'couple_lambda0': ['vdw_q', 'vdq', 'q', 'none'],
+    'couple_lambda1': ['vdw_q', 'vdw', 'q', 'none'],
+    'couple_intramol': ['no', 'yes'],
+    'nstdhdl': [],
+    'separate_dhdl_file': ['yes', 'no'],
+    'dh_hist_size': [],
+    'dh_hist_spacing': [],
+    # Non-equilibrium MD
+    'acc_grps': [],
+    'accelerate': [],
+    'freezegrps': [],
+    'freezedim': [],
+    'cos_accelaration': [],
+    'deform': [],
+    # Electric fields
+    'e_x': [],
+    'e_y': [],
+    'e_z': [],
+    'e_xt': [],
+    'e_yt': [],
+    'e_zt': [],
+    # Mixed quantum/classical molecular dynamics
+    'qmmm': ['no', 'yes'],
+    'qmmm_grps': [],
+    'qmmmscheme': ['normal', 'oniom'],
+    'qmmethod': ['am1', 'pm3', 'rhf', 'uhf', 'dft', 'b3lyp', 'mp2',
+                 'casscf', 'mmvb'],
+    'qmbasis': ['sto_3g', '3_21g', '3_21g*', '3_21+g', '6_21g', '6_31g',
+                '6_31g*', '6_31+g*', '6_311g'],
+    'qmcharge': [],
+    'qmmult': [],
+    'casorbitals': [],
+    'caselectrons': [],
+    'sh': ['no', 'yes'],
+    # Implicit solvent
+    'implicit_solvent': ['no', 'gbsa'],
+    'gb_algorithm': ['still', 'hct', 'obc'],
+    'nstgbradii': [],
+    'rgbradii': [],
+    'gb_epsilon_solvent': [],
+    'gb_slatconc': [],
+    'gb_obc_alpha': [],
+    'gb_obc_beta': [],
+    'gb_obc_gamma': [],
+    'gb_dielectric_ofset': [],
+    'sa_algorithm': ['ace_approximation', 'none'],
+    'sa_surface_tension': [],
+    # User defined thingies
+    'user1_grps': [],
+    'user2_grps': [],
+    'userint1': [],
+    'userint2': [],
+    'userint3': [],
+    'userint4': [],
+    'userreal1': [],
+    'userreal2': [],
+    'userreal3': [],
+    'userreal4': [],
 }
 
 
@@ -216,7 +283,6 @@ def get_completions(base, line, cursor, mdp_options):
     """
     start = get_start(line, cursor)
     # Clean base
-    #base = line[start:cursor+1]
     if len(base) > 0 and base[0] == "=":
         base = base[1:]
     base = base.strip()
@@ -241,38 +307,16 @@ def get_completions(base, line, cursor, mdp_options):
 
 
 def vim_complete():
+    """
+    The function called from vim.
+    """
     findstart = int(vim.eval('a:findstart'))
     base = vim.eval('a:base')
     line = vim.eval('getline(".")')
     cursor = int(vim.eval("col('.')")) - 1
     if findstart:
         start = get_start(line, cursor)
-        #print >> open("vimlog", "a"), findstart, base, line, cursor, start
         vim.command('let l:result = %d' % start)
     else:
         completions = get_completions(base, line, cursor, MDP)
-        #print >> open("vimlog", "a"), findstart, base, line, cursor, completions
         vim.command('let l:result = %s' % completions)
-
-
-def test_cli():
-    """
-    Read a fake line from the command line and suggest the rest.
-    """
-    line = sys.argv[1]
-    print line
-    cursor = len(line) - 1
-    base = line[get_start(line, cursor):cursor + 1]
-    complete = get_completions(base, line, cursor, MDP)
-    if len(complete) == 0:
-        print "No completion"
-    for item in complete:
-        print "*", item
-
-
-def hello_world(name):
-    vim.command("let l:return = 'hello %s'" % name)
-
-
-#if __name__ == "__main__":
-#    test_cli()
