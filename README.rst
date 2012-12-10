@@ -8,7 +8,7 @@ For the moment, it works with mdp, gro, top/itp, xvg and ndx files.
 
 It contains also macros to comment/uncomment easily selections of a file and to jump to different sections (*[...]*) of a file.
 
-The plugin also provides keyword autocompletion in mdp and top/itp files.
+The plugin also provides contextual autocompletion in mdp files.
 
 
 Installation
@@ -54,8 +54,11 @@ To use macros, you need to allow filetype plugins : "filetype plugin on" in your
 
 (If you want to have gromacs macros always allowed, move gromacs.vim from  *~/.vim/ftplugin* to *~/.vim/plugin*)
 
-To autocomplete a keyword in a mdp or a top/itp file, start typing your word and press Ctrl+N.
+To activate contextual completion in mdp files, add the following line in your *.vimrc*:
 
+    autocmd FileType mdp.gromacs set omnifunc=mdpcomplete#Complete
+
+Then completion is triggered in insert mode by <C-x><C-o>.
 
 Usage
 -----
