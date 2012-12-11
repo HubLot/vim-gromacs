@@ -54,18 +54,37 @@ Get Started
 
 Syntax highlighting should be automatic.
 
+Macros
+~~~~~~
+
 To use macros, you need to allow filetype plugins : "filetype plugin on" in
 your *.vimrc*.
 
 (If you want to have gromacs macros always allowed, move gromacs.vim from
 *~/.vim/ftplugin* to *~/.vim/plugin*)
 
+Completion
+~~~~~~~~~~
+
 To activate contextual completion in mdp files, add the following line in your
 *.vimrc*:
+
+::
 
     autocmd FileType mdp.gromacs set omnifunc=mdpcomplete#Complete
 
 Then completion is triggered in insert mode by <C-x><C-o>.
+
+Fix number of atoms when saving gro file
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To automatically fix the number of atoms in gro files at saving time add the following line to your *.vimrc*:
+
+::
+
+    autocmd BufWritePre *.gro call Update_number_of_atoms()
+
+You can also update the number of atoms by using the "Unatoms" command.
 
 Tricks
 -------
@@ -78,6 +97,8 @@ type. It can be changed however. With the following instruction in your
 *.vimrc*, <C-n> will trigger the completion. The change will be active only for
 MDP files.
 
+::
+
     autocmd FileType mdp.gromacs imap <C-n> <C-x><C-o>
 
 Suggest values when you type =
@@ -85,6 +106,8 @@ Suggest values when you type =
 
 To have the possible values suggested when you write the = in a MDP file, just
 add the following line in your *vimrc*:
+
+::
 
     autocmd FileType mdp.gromacs imap <silent> <buffer> = = <C-X><C-O>
 
