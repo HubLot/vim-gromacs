@@ -17,9 +17,9 @@ function Declared_number_of_atoms()
 endfunction
 
 function Update_number_of_atoms()
-    echo "hey ho!"
     if Declared_number_of_atoms() - Number_of_atoms() != 0
         call setline(2, Number_of_atoms())
+        echo "Number of atoms updated!"
     endif
 endfunction
 
