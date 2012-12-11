@@ -1,2 +1,4 @@
 build.vim
 Makefile
+*.sw[a-z]
+*.pyc
