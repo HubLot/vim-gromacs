@@ -47,4 +47,4 @@ function! Translate(dx, dy, dz) range
     endwhile
 endfunction
 
-command Unatoms call Update_number_of_atoms()
+command! Unatoms call Update_number_of_atoms()
