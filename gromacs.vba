@@ -563,7 +563,7 @@ MDP = {
     'tau_p': [],
     'compressibility': [],
     'ref_p': [],
-    'refcood_scaling': ['no', 'all', 'com'],
+    'refcoord_scaling': ['no', 'all', 'com'],
     # Simulated annealing
     'annealing': ['no', 'single', 'periodic'],
     'annealling_npoints': [],
