@@ -15,21 +15,6 @@ The plugin also provides contextual autocompletion in mdp files.
 Installation
 ------------
 
-+ **Manual Way**
-
-Go to your ~/.vim directory.
-
-If *syntax*, *ftdetect* and *ftplugin* directories don't exist, copy them from
-github.  If they are, copy only files inside. Otherwise, existing files will be
-replaced.
-
-+ **Pathogen Way**
-
-Pathogen is a vim module which allows to load modules from there own directory.
-
-Install pathogen (https://github.com/tpope/vim-pathogen) and then clone this
-repository in ~/.vim/bundle. It works.
-
 + **VimBall Way (Vim >= 7.0)**
 
 Get the vimball *gromacs.vba*.
@@ -40,7 +25,20 @@ Open it with vi and type:
   :so %
   :q!
 
++ **Pathogen Way**
 
+Pathogen is a vim module which allows to load modules from there own directory.
+
+Install pathogen (https://github.com/tpope/vim-pathogen) and then clone this
+repository in ~/.vim/bundle. It works.
+
++ **Manual Way**
+
+Go to your ~/.vim directory.
+
+If *syntax*, *autoload*, *ftdetect*, and *ftplugin* directories don't exist,
+copy them from github.  If they are, copy only the files inside. Otherwise,
+existing files will be replaced.
 
 + **OS Supported**
 
